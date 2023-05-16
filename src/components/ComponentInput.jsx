@@ -6,10 +6,12 @@ import {
     Button
   } from '@chakra-ui/react'
 
-function ComponentInput({setPhrases, setHideInput}) {
+function ComponentInput({setPhrases, setHideInput, setShowSpinner}) {
   const [text, setText] = useState('');
 
   async function requestApi() {
+    setShowSpinner(true)
+    setHideInput(true)
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -25,7 +27,7 @@ function ComponentInput({setPhrases, setHideInput}) {
       const dataDivided = data.message.split('/')
       console.log(dataDivided)
       setPhrases(dataDivided)
-      setHideInput(true)
+      setShowSpinner(false)
     } catch (e) {
       console.log(e)
     }
