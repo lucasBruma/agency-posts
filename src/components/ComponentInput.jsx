@@ -1,3 +1,4 @@
+import  { useState } from 'react';
 import {
     VStack, 
     Heading,
@@ -5,8 +6,10 @@ import {
     Button
   } from '@chakra-ui/react'
 
-function ComponentInput() {
-  async function requestApi() {  
+function ComponentInput({setPhrases, setHideInput}) {
+  const [text, setText] = useState('');
+
+  async function requestApi() {
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -19,7 +22,10 @@ function ComponentInput() {
     try {
       const response = await fetch('http://localhost:3000', options)
       const data = await response.json()
-      return data.message
+      const dataDivided = data.message.split('/')
+      console.log(dataDivided)
+      setPhrases(dataDivided)
+      setHideInput(true)
     } catch (e) {
       console.log(e)
     }
@@ -27,7 +33,7 @@ function ComponentInput() {
   return (
     <VStack paddingX="10rem" spacing={8}>
         <Heading>¿Sobre qué es tu negocio?</Heading>
-        <Input placeholder='Ej: Marketing digital'></Input>
+        <Input placeholder='Ej: Marketing digital' onChange={(e) => setText(e.target.value)}></Input>
         <Button onClick={requestApi}>Crear imágenes con IA</Button>
     </VStack>
   )
