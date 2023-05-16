@@ -6,7 +6,7 @@ import {
     Button
   } from '@chakra-ui/react'
 
-function ComponentInput({setPhrases, setHideInput, setShowSpinner}) {
+function ComponentInput({setPictures, setHideInput, setShowSpinner}) {
   const [text, setText] = useState('');
 
   async function requestApi() {
@@ -24,19 +24,33 @@ function ComponentInput({setPhrases, setHideInput, setShowSpinner}) {
     try {
       const response = await fetch('http://localhost:3000', options)
       const data = await response.json()
-      const dataDivided = data.message.split('/')
-      console.log(dataDivided)
-      setPhrases(dataDivided)
+      const phrasesDivided = data.message.split('/')
+      console.log(phrasesDivided)
+      console.log(data.images)
+      // build an array which contains in each position a phrase and an image
+      const arrayCompleted = phrasesDivided.map((phrase, index) => {
+        return { phrase, image: data.images[index].cover_photo.urls.regular };
+      });
+      
+      setPictures(arrayCompleted)
       setShowSpinner(false)
     } catch (e) {
       console.log(e)
     }
   }
+
+  // async function unsplashApi(){
+  //   const apiKey = `h8SbPwlB0HM6V7ANgP1Q-y9MlzvOO3M5XI0CHLK2Wog`
+  //   const response = await fetch(`https://api.unsplash.com/search/collections?page=1&query=${text}&per_page=10&client_id=${apiKey}`)
+  //   const data = await response.json()
+  //   console.log(data)
+  // }
   return (
     <VStack paddingX="10rem" spacing={8}>
         <Heading>¿Sobre qué es tu negocio?</Heading>
         <Input placeholder='Ej: Marketing digital' onChange={(e) => setText(e.target.value)}></Input>
         <Button onClick={requestApi}>Crear imágenes con IA</Button>
+        {/* <Button onClick={unsplashApi}>Boton prueba unsplash api</Button> */}
     </VStack>
   )
 }

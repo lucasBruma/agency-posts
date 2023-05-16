@@ -4,12 +4,12 @@ import {
 
 import Picture from "../components/Picture"
 
-function Gallery({phrases}) {
+function Gallery({pictures}) {
 
   return (
-    <HStack maxWidth='500px'>
-        {phrases.map((phrase, index)=>{
-            return <Picture phrase={phrase} key={index}/>
+    <HStack maxHeight='500px'>
+        {pictures.map((picture, index)=>{
+            return <Picture phrase={picture.phrase} image={picture.image} key={index}/>
         })}
     </HStack>
   )
