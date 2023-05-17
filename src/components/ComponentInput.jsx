@@ -24,12 +24,12 @@ function ComponentInput({setPictures, setHideInput, setShowSpinner}) {
     try {
       const response = await fetch('http://localhost:3000', options)
       const data = await response.json()
-      const phrasesDivided = data.message.split('/')
-      console.log(phrasesDivided)
       console.log(data.images)
       // build an array which contains in each position a phrase and an image
-      const arrayCompleted = phrasesDivided.map((phrase, index) => {
-        return { phrase, image: data.images[index].cover_photo.urls.regular };
+      const arrayCompleted = data.images.map((phrase, index) => {
+        return { image: data.images[index] };
+        // return { phrase, image: data.images[index].cover_photo.urls.regular };
+
       });
       
       setPictures(arrayCompleted)

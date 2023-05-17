@@ -1,13 +1,12 @@
 
 import {
     VStack, 
-Text, Image
+ Image
   } from '@chakra-ui/react'
 
-function Picture({phrase, image}) {
+function Picture({ image}) {
   return (
     <VStack>
-        <Text>{phrase}</Text>
         <Image src={image} />
     </VStack>
   )
