@@ -1,17 +1,19 @@
 import {
-    HStack, 
+   Grid, GridItem
   } from '@chakra-ui/react'
 
 import Picture from "../components/Picture"
 
-function Gallery({pictures}) {
+function Gallery({pictures, authorData}) {
 
   return (
-    <HStack maxHeight='500px'>
+    <Grid templateColumns='repeat(4, 1fr)' gap={6}>
         {pictures.map((picture, index)=>{
-            return <Picture image={picture.image} key={index}/>
+            return <GridItem colSpan={1} rowSpan={1} key={index} maxWidth='300px' maxHeight='500px' backgroundColor={'black'} borderRadius='lg' boxShadow='xl' p={5}>
+                <Picture image={picture.image} authorData={authorData} index={index}/>
+              </GridItem>
         })}
-    </HStack>
+    </Grid>
   )
 }
 

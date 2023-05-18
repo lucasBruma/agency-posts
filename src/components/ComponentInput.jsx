@@ -6,7 +6,7 @@ import {
     Button
   } from '@chakra-ui/react'
 
-function ComponentInput({setPictures, setHideInput, setShowSpinner}) {
+function ComponentInput({setPictures, setHideInput, setShowSpinner, setAuthorData}) {
   const [text, setText] = useState('');
 
   async function requestApi() {
@@ -25,6 +25,7 @@ function ComponentInput({setPictures, setHideInput, setShowSpinner}) {
       const response = await fetch('http://localhost:3000', options)
       const data = await response.json()
       console.log(data.images)
+      console.log(data.data)
       // build an array which contains in each position a phrase and an image
       const arrayCompleted = data.images.map((phrase, index) => {
         return { image: data.images[index] };
@@ -33,6 +34,7 @@ function ComponentInput({setPictures, setHideInput, setShowSpinner}) {
       });
       
       setPictures(arrayCompleted)
+      setAuthorData(data.data)
       setShowSpinner(false)
     } catch (e) {
       console.log(e)
