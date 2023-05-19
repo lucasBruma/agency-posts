@@ -49,22 +49,22 @@ function Picture({ image, authorData, index }) {
 
   return (
     <VStack >
-      <Link href={`${authorData[index].cover_photo.urls.regular}?utm_source=agencyposts&utm_medium=referral`} target='_blank'>
+      <Link href={`${authorData[index].url}`} target='_blank'>
         <Image src={image} />
       </Link>
       <VStack>
         <Text fontSize='xs' color='gray.500' fontWeight='bold'>
-          Foto de{' '}
-          <Link fontWeight='bold' href={`${authorData[index].cover_photo.user.links.html}?utm_source=agencyposts&utm_medium=referral`} target='_blank'>
-            {authorData[index].cover_photo.user.name}
+          Photo by{' '}
+          <Link fontWeight='bold' href={`${authorData[index].photographer_url}`} target='_blank'>
+            {authorData[index].photographer}
           </Link>{' '}
-          en{' '}
-          <Link href='https://unsplash.com/?utm_source=agencyposts&utm_medium=referral' target='_blank'>
-            Unsplash
+          on{' '}
+          <Link href='https://www.pexels.com' target='_blank'>
+            Pexels
           </Link>
         </Text>
         <Button onClick={handleDownload}>
-          Descarga la imagen aquí
+          Download here
         </Button>
       </VStack>
     </VStack>

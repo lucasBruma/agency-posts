@@ -49,9 +49,9 @@ function ComponentInput({setPictures, setHideInput, setShowSpinner, setAuthorDat
   // }
   return (
     <VStack paddingX="10rem" spacing={8}>
-        <Heading>¿Sobre qué es tu negocio?</Heading>
-        <Input placeholder='Ej: Marketing digital' onChange={(e) => setText(e.target.value)}></Input>
-        <Button onClick={requestApi}>Crear imágenes con IA</Button>
+        <Heading>¿What is your Agency about?</Heading>
+        <Input placeholder='Eg: Programming' onChange={(e) => setText(e.target.value)}></Input>
+        <Button onClick={requestApi}>Build your images with AI</Button>
         {/* <Button onClick={unsplashApi}>Boton prueba unsplash api</Button> */}
     </VStack>
   )
