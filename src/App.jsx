@@ -10,7 +10,7 @@ function App() {
   const [hideInput , setHideInput] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
   return (
-    <Stack height='100%' alignItems='center' justifyContent='center'>
+    <Stack height='100vh' alignItems='center' justifyContent='center'>
       {!hideInput &&
             <ComponentInput setPictures={setPictures} setHideInput={setHideInput} setShowSpinner={setShowSpinner} setAuthorData={setAuthorData}/>
       }
@@ -20,7 +20,9 @@ function App() {
         <Text>Aguarde un momento. Sus imagenes se están creando!</Text>
       </VStack>
       }
-      <Gallery pictures={pictures} authorData={authorData} />
+      {hideInput && showSpinner === false &&
+        <Gallery pictures={pictures} authorData={authorData} />
+      }
     </Stack>
   )
 }

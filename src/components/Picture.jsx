@@ -49,7 +49,9 @@ function Picture({ image, authorData, index }) {
 
   return (
     <VStack >
-      <Image src={image} />
+      <Link href={`${authorData[index].cover_photo.urls.regular}?utm_source=agencyposts&utm_medium=referral`} target='_blank'>
+        <Image src={image} />
+      </Link>
       <VStack>
         <Text fontSize='xs' color='gray.500' fontWeight='bold'>
           Foto de{' '}
