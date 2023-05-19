@@ -17,7 +17,7 @@ function App() {
       {showSpinner &&
       <VStack spacing={5}>
         <Spinner size='xl' color='blue.500'/>
-        <Text>Creating your images...</Text>
+        <Text>Creating your images. It may take a few minutes.</Text>
       </VStack>
       }
       {hideInput && showSpinner === false &&
