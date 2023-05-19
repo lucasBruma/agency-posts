@@ -1,26 +1,3 @@
-
-// import {
-//     VStack, 
-//  Image, 
-//  Text, 
-//  Link, Box
-//   } from '@chakra-ui/react'
-
-
-// function Picture({ image, authorData, index}) {
-//   return (
-//     <VStack maxWidth='200px' pb={10}>
-//         <Image src={image} />
-//         <VStack>
-//             <Text>Foto de <Link fontWeight='bold' href={authorData[index].cover_photo.user.links.html} target='blank'>{authorData[index].cover_photo.user.name}</Link> en <Link href='https://unsplash.com/?utm_source=your_app_name&utm_medium=referral' target='blank'>Unsplash</Link></Text>
-//             <Box><a href={image} download>Descarga la imagen aquí</a></Box>
-//         </VStack>
-//     </VStack>
-//   )
-// }
-
-// export default Picture
-
 import { VStack, Image, Text, Link, Button } from '@chakra-ui/react';
 
 function downloadImage(url, filename) {

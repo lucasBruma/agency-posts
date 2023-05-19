@@ -22,14 +22,11 @@ function ComponentInput({setPictures, setHideInput, setShowSpinner, setAuthorDat
       }
     }
     try {
-      const response = await fetch('http://localhost:3000', options)
+      const response = await fetch('https://api-agencyposts.onrender.com', options)
       const data = await response.json()
-      console.log(data.images)
-      console.log(data.data)
-      // build an array which contains in each position a phrase and an image
-      const arrayCompleted = data.images.map((phrase, index) => {
+
+      const arrayCompleted = data.images.map((item, index) => {
         return { image: data.images[index] };
-        // return { phrase, image: data.images[index].cover_photo.urls.regular };
 
       });
       
@@ -41,18 +38,11 @@ function ComponentInput({setPictures, setHideInput, setShowSpinner, setAuthorDat
     }
   }
 
-  // async function unsplashApi(){
-  //   const apiKey = `h8SbPwlB0HM6V7ANgP1Q-y9MlzvOO3M5XI0CHLK2Wog`
-  //   const response = await fetch(`https://api.unsplash.com/search/collections?page=1&query=${text}&per_page=10&client_id=${apiKey}`)
-  //   const data = await response.json()
-  //   console.log(data)
-  // }
   return (
     <VStack paddingX="10rem" spacing={8}>
         <Heading>¿What is your Agency about?</Heading>
         <Input placeholder='Eg: Programming' onChange={(e) => setText(e.target.value)}></Input>
         <Button onClick={requestApi}>Build your images with AI</Button>
-        {/* <Button onClick={unsplashApi}>Boton prueba unsplash api</Button> */}
     </VStack>
   )
 }
