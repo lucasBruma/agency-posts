@@ -2,17 +2,14 @@
     Agency Posts
 
 # Description
-    This project is a web application designed to assist agencies in creating engaging and creative Instagram posts effortlessly. The application allows users to enter a keyword related to their agency's theme, and it generates text suggestions using the OpenAI API. Additionally, it utilizes the Pexels API to fetch relevant and visually appealing images for the posts.
+    This project is a web application designed to assist agencies in creating engaging and creative Instagram posts effortlessly. The application allows users to enter a keyword related to their agency's theme, and it generates post suggestions, using the OpenAI API and the Pexels API, to post on Instagram
 
 # Features
     Easy and intuitive user interface.
     Automated generation of Instagram post text based on user-provided keywords.
     Integration with the OpenAI API for text generation.
-    Integration with the Pexels API for image retrieval.
-    Option to customize and refine generated text before finalizing the post.
-    Ability to preview the post with the selected image before publishing.
-    Responsive design for seamless usage on various devices.
-    Future plan to implement user authentication and a database for user profiles and image storage.
+    Integration with the Pexels API for image.
+    Future plan to implement user authentication and a database for user profiles.
 
 # Technologies Used
     Frontend: React, JavaScript, Chakra UI.
