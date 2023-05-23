@@ -6,7 +6,7 @@ import {
     Button
   } from '@chakra-ui/react'
 
-function ComponentInput({setPictures, setHideInput, setShowSpinner, setAuthorData}) {
+function ComponentInput({setPictures, setHideInput, setShowSpinner, setAuthorData, setShowServerError, setShowQueryError}) {
   const [text, setText] = useState('');
 
   async function requestApi() {
@@ -24,7 +24,13 @@ function ComponentInput({setPictures, setHideInput, setShowSpinner, setAuthorDat
     try {
       const response = await fetch('https://api-agencyposts.onrender.com', options)
       const data = await response.json()
-
+      
+      if(!data.success){
+        setShowServerError(true);
+      }
+      if(data.success && data.data.length == 0){
+        setShowQueryError(true);
+      }
       const arrayCompleted = data.images.map((item, index) => {
         return { image: data.images[index] };
 
